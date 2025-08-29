@@ -1,0 +1,31 @@
+{
+  "name": "Langie - Customer Support Agent",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "customer_name": { "type": "string" },
+      "email": { "type": "string" },
+      "query": { "type": "string" },
+      "priority": { "type": "string" },
+      "ticket_id": { "type": "string" }
+    },
+    "required": ["customer_name", "email", "query", "ticket_id"]
+  },
+  "stages": [
+    { "name": "INTAKE", "mode": "deterministic" },
+    { "name": "UNDERSTAND", "mode": "deterministic" },
+    { "name": "PREPARE", "mode": "deterministic" },
+    { "name": "ASK", "mode": "non-deterministic" },
+    { "name": "WAIT", "mode": "deterministic" },
+    { "name": "RETRIEVE", "mode": "deterministic" },
+    { "name": "DECIDE", "mode": "non-deterministic" },
+    { "name": "UPDATE", "mode": "deterministic" },
+    { "name": "CREATE", "mode": "deterministic" },
+    { "name": "DO", "mode": "deterministic" },
+    { "name": "COMPLETE", "mode": "deterministic" }
+  ],
+  "mcp_servers": {
+    "ATLAS": "For abilities requiring external system interaction (e.g., databases, APIs).",
+    "COMMON": "For internal logic and calculations that require an LLM but no external data."
+  }
+}
